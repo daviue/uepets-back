@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Pet(models.Model):
+    codPet = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=30)
     idade = models.IntegerField()
     SEXO_CHOICES = (
@@ -24,6 +25,7 @@ class Pet(models.Model):
         return self.nome
 
 class Usuario(models.Model):
+    codUsuario = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     email = models.EmailField()
     senha = models.CharField(max_length=32)
@@ -34,6 +36,7 @@ class Usuario(models.Model):
         return self.nome
 
 class Ong(models.Model):
+    codOng = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     email = models.EmailField()
     senha = models.CharField(max_length=32)
@@ -56,6 +59,7 @@ class Endereco(models.Model):
         return self.rua
 
 class Vacina(models.Model):
+    codVacina = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     data = models.DateField()
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE, blank=True, null=True)
