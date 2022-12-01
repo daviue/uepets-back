@@ -1,8 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Curso
+from .models import Pet, Usuario, Ong, Endereco, Vacina
 
-@admin.register(Curso)
-class CursoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'carga_horaria')
+admin.site.register(Pet)
+admin.site.register(Usuario)
+admin.site.register(Ong)
+admin.site.register(Endereco)
+admin.site.register(Vacina)
