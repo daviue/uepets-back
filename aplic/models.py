@@ -32,6 +32,9 @@ class Pet(models.Model):
     porte = models.CharField(max_length=10, choices=PORTE_CHOICES, blank=False, null=False, default='Escolha uma opção')
     pelo = models.CharField(max_length=10, choices=PELO_CHOICES, blank=False, null=False, default='Escolha uma opção')
     descricao = models.TextField(verbose_name='Descrição', null=True, blank=True)
+    foto = models.TextField(verbose_name='Imagem', null=True, blank=True)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, blank=False, null=False)
+    ong = models.ForeignKey('Ong', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.nome
@@ -41,7 +44,7 @@ class Usuario(models.Model):
     email = models.EmailField()
     senha = models.CharField(max_length=32)
     telefone = models.CharField(max_length=20)
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, blank=True, null=True)
+
 
     def __str__(self):
         return self.nome
@@ -52,7 +55,6 @@ class Ong(models.Model):
     senha = models.CharField(max_length=32)
     telefone = models.IntegerField()
     cnpj = models.IntegerField(verbose_name='CNPJ')
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.nome

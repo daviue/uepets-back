@@ -4,21 +4,21 @@ from django.contrib import admin
 from .models import Pet, Usuario, Ong, Endereco, Vacina
 
 class PetsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'idade', 'raca', 'sexo', 'tipo', 'porte', 'pelo', 'descricao')
-    list_display_links = ('id','nome', 'idade', 'raca', 'sexo', 'tipo', 'porte', 'pelo', 'descricao')
-    search_fields = ('id','nome', 'idade', 'raca', 'sexo', 'tipo', 'porte', 'pelo', 'descricao')
+    list_display = ('id', 'nome', 'idade', 'raca', 'sexo', 'tipo', 'porte', 'pelo', 'descricao','foto', 'usuario', 'ong')
+    list_display_links = ('id','nome', 'idade', 'raca', 'sexo', 'tipo', 'porte', 'pelo', 'descricao','foto', 'usuario', 'ong')
+    search_fields = ('id','nome', 'idade', 'raca', 'sexo', 'tipo', 'porte', 'pelo', 'descricao','foto', 'usuario', 'ong')
     list_per_page = 10
 
 class UsuariosAdmin(admin.ModelAdmin):
-    list_display = ('id','nome', 'email', 'senha', 'telefone', 'pet')
-    list_display_links = ('id','nome', 'email', 'senha', 'telefone', 'pet')
-    search_fields = ('id','nome', 'email', 'senha', 'telefone', 'pet')
+    list_display = ('id','nome', 'email', 'senha', 'telefone')
+    list_display_links = ('id','nome', 'email', 'senha', 'telefone')
+    search_fields = ('id','nome', 'email', 'senha', 'telefone')
     list_per_page = 10
 
 class OngsAdmin(admin.ModelAdmin):
-    list_display = ('id','nome', 'email', 'senha', 'telefone', 'cnpj', 'pet')
-    list_display_links = ('id','nome', 'email', 'senha', 'telefone', 'cnpj', 'pet')
-    search_fields = ('id','nome', 'email', 'senha', 'telefone', 'cnpj', 'pet')
+    list_display = ('id','nome', 'email', 'senha', 'telefone', 'cnpj')
+    list_display_links = ('id','nome', 'email', 'senha', 'telefone', 'cnpj')
+    search_fields = ('id','nome', 'email', 'senha', 'telefone', 'cnpj')
     list_per_page = 10
 
 class EnderecosAdmin(admin.ModelAdmin):

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework import viewsets
 from aplic.models import Pet, Usuario, Ong, Endereco, Vacina
-from aplic.api.serializer import PetsSerializer, UsuariosSerializer, OngsSerializer, EnderecosSerializer, VacinasSerializer
+from aplic.api.serializer import PetsSerializer, UsuariosSerializer, OngsSerializer, EnderecosSerializer, VacinasSerializer, LoginSerializer
 
 # Create your views here.
 
@@ -26,5 +26,10 @@ class VacinasViewSet(viewsets.ModelViewSet):
     queryset = Vacina.objects.all()
     serializer_class = VacinasSerializer
 
+class LoginViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.filter(email__icontains='email', senha__icontains='senha')
+    serializer_class = LoginSerializer
+
 class IndexView(TemplateView):
     template_name = 'index.html'
+
